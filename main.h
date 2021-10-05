@@ -3,9 +3,10 @@
 
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdlib.h>
+
 /**
-* struct steps- structure created
-*
+* struct steps - structure created
 * @spec: chooses a specifier from array of structure
 *
 * @f: function pointer
@@ -15,8 +16,6 @@ typedef struct steps
 char *spec;
 int (*f)(va_list arg);
 } specifier;
-
-
 
 int _printf(const char *format, ...);
 int print_char(char c);
@@ -32,4 +31,4 @@ int print_octal(va_list arg);
 int print_binary(va_list arg);
 int len_buffer(int n, int base);
 
-#endif
+#endif /* MAIN_H */
