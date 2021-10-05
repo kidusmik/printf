@@ -49,7 +49,6 @@ int print_percent(va_list __attribute__((__unused__))arg)
 	int len;
 
 	len = 0;
-
 	print_char('%');
 	len++;
 	return (len);
