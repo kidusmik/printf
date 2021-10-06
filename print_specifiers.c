@@ -1,6 +1,8 @@
 #include "main.h"
+#include <stdlib.h>
 /**
 * print_c - print character from arg
+*
 * @arg: argument
 *
 * Return: length
@@ -16,6 +18,7 @@ int print_c(va_list arg)
 }
 /**
 * print_string - prints string
+*
 * @arg: argument
 *
 * Return: length
@@ -40,6 +43,7 @@ int print_string(va_list arg)
 }
 /**
 * print_percent - prints percent sign
+*
 * @arg: argument
 *
 * Return: length
@@ -55,6 +59,7 @@ int print_percent(va_list __attribute__((__unused__))arg)
 }
 /**
 * print_unsigned - prints unsigned integer
+*
 * @arg: argument
 *
 * Return: length
@@ -90,6 +95,7 @@ int print_unsigned(va_list arg)
 }
 /**
 * print_integer - prints integer
+*
 * @arg: argument
 *
 * Return: length
@@ -101,7 +107,7 @@ int print_integer(va_list arg)
 	char *s;
 
 	i = 1;
-	n = va_arg(arg, unsigned int);
+	n = va_arg(arg, int);
 	len = len_buffer(n, 10);
 	if (n < 0)
 	{
@@ -109,21 +115,15 @@ int print_integer(va_list arg)
 		num = n * -1;
 	}
 	else
-	{
 		num = n;
-	}
 	if (n < 0)
 	{
 		s = malloc(sizeof(char) * (len + 2));
 	}
 	else
-	{
 		s = malloc(sizeof(char) * (len + 1));
-	}
 	if (s == 0)
-	{
 		return (0);
-	}
 	while (num != 0)
 	{
 		temp = num % 10;
