@@ -85,7 +85,6 @@ int print_unsigned(va_list arg)
 		i++;
 		n = n / 10;
 	}
-	s[i] = '\0';
 	for (j = i - 1; j >= 0; j--)
 	{
 		print_char(s[j]);
@@ -131,7 +130,6 @@ int print_integer(va_list arg)
 		i++;
 		num = num / 10;
 	}
-	s[i] = '\0';
 	for (j = i - 1; j >= 0; j--)
 	{
 		print_char(s[j]);
