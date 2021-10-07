@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-* converter - function to parse the input string
+* entry_printf - function to parse the input string
 *
 * @sp: specifier list
 *

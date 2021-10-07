@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-* print_c - print character from arg
+* print_char - print character from arg
 *
 * @arg: argument
 *
