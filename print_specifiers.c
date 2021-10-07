@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdlib.h>
 /**
 * print_c - print character from arg
 *
@@ -66,30 +65,28 @@ int print_percent(va_list __attribute__((__unused__))arg)
 */
 int print_unsigned(va_list arg)
 {
-	int temp, j, len, i;
-	unsigned int n;
-	char *s;
+	int div;
+	int len;
+	unsigned int num;
 
-	i = 1;
-	n = va_arg(arg, unsigned int);
-	len = len_buffer(n, 10);
-	s = malloc(sizeof(char) * (len + 1));
-	if (s == 0)
+	div = 1;
+	len = 0;
+
+	num = va_arg(arg, unsigned int);
+
+	if (num < 1)
+		return (-1);
+
+	for (; num / div > 9; )
+		div *= 10;
+
+	for (; div != 0; )
 	{
-		return (0);
+		len += print_char('0' + num / div);
+		num %= div;
+		div /= 10;
 	}
-	while (n != 0)
-	{
-		temp = n % 10;
-		s[i] = (temp + '0');
-		i++;
-		n = n / 10;
-	}
-	for (j = i - 1; j >= 0; j--)
-	{
-		print_char(s[j]);
-	}
-	free(s);
+
 	return (len);
 }
 /**
@@ -101,38 +98,32 @@ int print_unsigned(va_list arg)
 */
 int print_integer(va_list arg)
 {
-	int j, len, n, i, temp;
+	int n;
+	int div;
+	int len;
 	unsigned int num;
-	char *s;
 
-	i = 1;
-	n = va_arg(arg, int);
-	len = len_buffer(n, 10);
+	n  = va_arg(arg, int);
+	div = 1;
+	len = 0;
+
 	if (n < 0)
 	{
-		print_char('-');
+		len += print_char('-');
 		num = n * -1;
 	}
 	else
 		num = n;
-	if (n < 0)
+
+	for (; num / div > 9; )
+		div *= 10;
+
+	for (; div != 0; )
 	{
-		s = malloc(sizeof(char) * (len + 2));
+		len += print_char('0' + num / div);
+		num %= div;
+		div /= 10;
 	}
-	else
-		s = malloc(sizeof(char) * (len + 1));
-	if (s == 0)
-		return (0);
-	while (num != 0)
-	{
-		temp = num % 10;
-		s[i] = (temp + '0');
-		i++;
-		num = num / 10;
-	}
-	for (j = i - 1; j >= 0; j--)
-	{
-		print_char(s[j]);
-	}
+
 	return (len);
 }
