@@ -6,12 +6,12 @@
 *
 * Return: length
 */
-int print_c(va_list arg)
+int print_char(va_list arg)
 {
 	int len;
 
 	len = 0;
-	print_char(va_arg(arg, int));
+	_putchar(va_arg(arg, int));
 	len++;
 	return (len);
 }
@@ -35,7 +35,7 @@ int print_string(va_list arg)
 	len  = 0;
 	while (s[len] != '\0')
 	{
-		print_char(s[len]);
+		_putchar(s[len]);
 		len++;
 	}
 	return (len);
@@ -52,7 +52,7 @@ int print_percent(va_list __attribute__((__unused__))arg)
 	int len;
 
 	len = 0;
-	print_char('%');
+	_putchar('%');
 	len++;
 	return (len);
 }
@@ -82,7 +82,7 @@ int print_unsigned(va_list arg)
 
 	for (; div != 0; )
 	{
-		len += print_char('0' + num / div);
+		len += _putchar('0' + num / div);
 		num %= div;
 		div /= 10;
 	}
@@ -109,7 +109,7 @@ int print_integer(va_list arg)
 
 	if (n < 0)
 	{
-		len += print_char('-');
+		len += _putchar('-');
 		num = n * -1;
 	}
 	else
@@ -120,7 +120,7 @@ int print_integer(va_list arg)
 
 	for (; div != 0; )
 	{
-		len += print_char('0' + num / div);
+		len += _putchar('0' + num / div);
 		num %= div;
 		div /= 10;
 	}

@@ -10,7 +10,7 @@
 *
 * Return: length if successful, otherwise -1
 */
-int converter(specifier sp[], const char *format, va_list arg)
+int entry_printf(specifier sp[], const char *format, va_list arg)
 {
 	int i, j, k, len;
 
@@ -36,8 +36,8 @@ int converter(specifier sp[], const char *format, va_list arg)
 			{
 				if (format[i] != '\0')
 				{
-					print_char('%');
-					print_char(format[i]);
+					_putchar('%');
+					_putchar(format[i]);
 					len += 2;
 				}
 				else
@@ -46,7 +46,7 @@ int converter(specifier sp[], const char *format, va_list arg)
 		}
 		else
 		{
-			print_char(format[i]);
+			_putchar(format[i]);
 			len++;
 		}
 	}

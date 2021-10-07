@@ -19,9 +19,8 @@ int (*f)(va_list arg);
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-int print_char(char c);
-int converter(specifier sp[], const char *format, va_list arg);
-int print_c(va_list arg);
+int entry_printf(specifier sp[], const char *format, va_list arg);
+int print_char(va_list arg);
 int print_string(va_list arg);
 int print_percent(va_list arg);
 int print_unsigned(va_list arg);

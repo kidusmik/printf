@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 		int len = 0;
 
 		specifier sp[] = {
-			{"c", print_c},
+			{"c", print_char},
 			{"s", print_string},
 			{"%", print_percent},
 			{"d", print_integer},
@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 
 		va_start(arg, format);
 		{
-			len += converter(sp, format, arg);
+			len += entry_printf(sp, format, arg);
 		}
 
 		va_end(arg);
