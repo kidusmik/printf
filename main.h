@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <stdlib.h>
-
+#include <stdio.h>
 /**
 * struct steps - structure created
 * @spec: chooses a specifier from array of structure
