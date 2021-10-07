@@ -7,7 +7,7 @@
 */
 int _printf(const char *format, ...)
 {
-	if (format != 0)
+	if (format != NULL)
 	{
 		int len = 0;
 

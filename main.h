@@ -17,6 +17,7 @@ char *spec;
 int (*f)(va_list arg);
 } specifier;
 
+int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(char c);
 int converter(specifier sp[], const char *format, va_list arg);
