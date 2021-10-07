@@ -13,6 +13,13 @@ int print_binary(va_list arg)
 
 	i = 1;
 	n = va_arg(arg, unsigned int);
+
+	if (n < 1)
+		return (-1);
+
+	if (n == 0)
+		return (_putchar('0'));
+
 	len = len_buffer(n, 2);
 	s = malloc(sizeof(char) * (len + 1));
 	if (s == NULL)
@@ -48,6 +55,12 @@ int print_octal(va_list arg)
 
 	i = 1;
 	n = va_arg(arg, unsigned int);
+	
+	if (n == 0)
+		return (_putchar('0'));
+	if (n < 1)
+		return (-1);
+
 	len = len_buffer(n, 8);
 	s = malloc(sizeof(char) * (len + 1));
 	if (s == NULL)
@@ -83,6 +96,12 @@ int print_hex(va_list arg)
 
 	i = 1;
 	n = va_arg(arg, unsigned int);
+
+	if (n == 0)
+		return (_putchar('0'));
+	if (n < 1)
+		return (-1);
+
 	len = len_buffer(n, 16);
 	s = malloc(sizeof(char) * (len + 1));
 	if (s == NULL)
@@ -126,6 +145,12 @@ int print_HEX(va_list arg)
 
 	i = 1;
 	n = va_arg(arg, unsigned int);
+
+	if (n == 0)
+		return (_putchar('0'));
+	if (n < 1)
+		return (-1);
+
 	len = len_buffer(n, 16);
 	s = malloc(sizeof(char) * (len + 1));
 	if (s == NULL)
