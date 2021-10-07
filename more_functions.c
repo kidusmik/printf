@@ -32,23 +32,15 @@ int print_rot(va_list arg)
 	int i = 0;
 	char *s;
 	int j;
-char str1[] = {'A', 'B', 'C', 'D', 'E', 'F',
-		'G', 'H', 'I', 'J', 'K', 'L',
-		'M', 'N', 'O', 'P', 'Q', 'R',
-		'S', 'T', 'U', 'V', 'W', 'X',
-		'Y', 'Z', 'a', 'b', 'c', 'd',
-		'e', 'f', 'g', 'h', 'i', 'j',
-		'k', 'l', 'm', 'n', 'o', 'p',
-		'q', 'r', 's', 't', 'u', 'v',
+char str1[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+		'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+		'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
+		'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
 		'w', 'x', 'y', 'z'};
-char str2[] = {'N', 'O', 'P', 'Q', 'R', 'S',
-		'T', 'U', 'V', 'W', 'X', 'Y',
-		'Z', 'A', 'B', 'C', 'D', 'E',
-		'F', 'G', 'H', 'I', 'J', 'K',
-		'L', 'M', 'n', 'o', 'p', 'q',
-		'r', 's', 't', 'u', 'v', 'w',
-		'x', 'y', 'z', 'a', 'b', 'c',
-		'd', 'e', 'f', 'g', 'h', 'i',
+char str2[] = {'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+		'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+		'L', 'M', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
+		'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
 		'j', 'k', 'l', 'm'};
 	s = va_arg(arg, char *);
 		if (s == NULL)
@@ -74,7 +66,7 @@ char str2[] = {'N', 'O', 'P', 'Q', 'R', 'S',
 		return (i);
 }
 /**
-* rev_string- to reverse a string
+* print_rev- to reverse a string
 *
 * @arg: to store the number of arguments
 *
@@ -85,9 +77,10 @@ int print_rev(va_list arg)
 	int len;
 	int j;
 	char *s;
+
 	s = va_arg(arg, char *);
 	if (s == NULL)
-	{	
+	{
 		s = "(null)";
 	}
 	len = 0;
@@ -95,7 +88,7 @@ int print_rev(va_list arg)
 	{
 		len++;
 	}
-	for (j = len -1; j >= 0; j--)
+	for (j = len - 1; j >= 0; j--)
 	{
 		print_char(s[j]);
 	}
