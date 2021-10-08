@@ -22,6 +22,8 @@ int _printf(const char *format, ...)
 			{"o", print_octal},
 			{"b", print_binary},
 			{"u", print_unsigned},
+			{"r", print_rev},
+			{"R", print_rot},
 			{NULL, NULL},
 		};
 

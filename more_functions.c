@@ -31,39 +31,30 @@ int print_rot(va_list arg)
 {
 	int i = 0;
 	char *s;
+	int len = 0;
 	int j;
-char str1[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-		'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
-		'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
-		'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v',
-		'w', 'x', 'y', 'z'};
-char str2[] = {'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
-		'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
-		'L', 'M', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
-		'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
-		'j', 'k', 'l', 'm'};
+char str1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+char str2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	s = va_arg(arg, char *);
 		if (s == NULL)
 		{
 			return (-1);
 		}
-		while (s[i])
+		for (i = 0; s[i]; i++)
 		{
-			for (j = 0; j <= 52; j++)
+			for (j = 0; str1[j]; j++)
 			{
-				if (s[i] == str1[j])
+				if (str1[j] == s[i])
 				{
-					print_char(str2[j]);
+					_putchar(str2[j]);
+					len++;
 					break;
 				}
-				if (s[i] != str1[j])
-				{
-					print_char(s[i]);
-				}
+				if (!str1[j])
+					_putchar(s[i]);
 			}
-		i++;
 		}
-		return (i);
+		return (len);
 }
 /**
 * print_rev- to reverse a string
@@ -90,7 +81,7 @@ int print_rev(va_list arg)
 	}
 	for (j = len - 1; j >= 0; j--)
 	{
-		print_char(s[j]);
+		_putchar(s[j]);
 	}
 	return (len);
 }
