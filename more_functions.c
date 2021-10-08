@@ -29,32 +29,38 @@ int len_buffer(unsigned int n, int base)
 */
 int print_rot(va_list arg)
 {
-	int i = 0;
+	int i;
 	char *s;
-	int len = 0;
 	int j;
-char str1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-char str2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+char str1[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
+		'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+		'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g',
+		'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+		's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+char str2[] = {'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+		'Y', 'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+		'J', 'K', 'L', 'M', 'n', 'o', 'p', 'q', 'r', 's', 't',
+		'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e',
+		'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'};
 	s = va_arg(arg, char *);
 		if (s == NULL)
 		{
 			return (-1);
 		}
-		for (i = 0; s[i]; i++)
+		for (i = 0; s[i] != '\0'; i++)
 		{
-			for (j = 0; str1[j]; j++)
+			for (j = 0; j < 52; j++)
 			{
-				if (str1[j] == s[i])
+				if (s[i] == str1[j])
 				{
 					_putchar(str2[j]);
-					len++;
 					break;
 				}
-				if (!str1[j])
-					_putchar(s[i]);
 			}
+			if (!str1[j])
+				_putchar(s[i]);
 		}
-		return (len);
+		return (i);
 }
 /**
 * print_rev- to reverse a string
