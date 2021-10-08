@@ -75,7 +75,7 @@ int print_rev(va_list arg)
 		s = "(null)";
 	}
 	len = 0;
-	while (s[len])
+	while (s[len] != '\0')
 	{
 		len++;
 	}

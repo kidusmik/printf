@@ -30,5 +30,7 @@ int print_hex(va_list arg);
 int print_octal(va_list arg);
 int print_binary(va_list arg);
 int len_buffer(int n, int base);
+int print_rev(va_list arg);
+int print_rot(va_list arg);
 
 #endif /* MAIN_H */
