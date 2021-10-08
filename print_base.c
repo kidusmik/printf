@@ -63,7 +63,7 @@ int print_octal(va_list arg)
 		return (1);
 	}
 	len = len_buffer(n, 8);
-	s = malloc(sizeof(int) * (len  + 1));
+	s = malloc(sizeof(char) * (len  + 1));
 	if (s == NULL)
 	{
 		return (-1);
@@ -72,6 +72,7 @@ int print_octal(va_list arg)
 	{
 	temp = n % 8;
 	s[len] = (temp + '0');
+	len++;
 	n = n / 8;
 	}
 	s[len] = '\0';
@@ -100,7 +101,7 @@ int print_hex(va_list arg)
 	if (n == 0)
 	{
 		_putchar('0');
-		return (-1);
+		return (1);
 	}
 	len = len_buffer(n, 16);
 	s = malloc(sizeof(char) * (len));
@@ -120,6 +121,7 @@ int print_hex(va_list arg)
 			temp = temp + 87;
 		}
 		s[len] = temp;
+		len++;
 		n = n / 16;
 	}
 	s[len] = '\0';
@@ -147,7 +149,7 @@ int print_HEX(va_list arg)
 	if (n == 0)
 	{
 		_putchar('0');
-		return (-1);
+		return (1);
 	}
 	len = len_buffer(n, 16);
 	s = malloc(sizeof(char) * (len));
@@ -167,6 +169,7 @@ int print_HEX(va_list arg)
 			temp = temp + 55;
 		}
 		s[len] = temp;
+		len++;
 		n = n / 16;
 	}
 	s[len] = '\0';
