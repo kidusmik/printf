@@ -14,8 +14,8 @@ int main(void)
     unsigned int ui;
     void *addr;
 
-    len = _printf("Complete the sentence: You %r nothing, Jon Snow.\n", "know");
-    len2 = printf("This sentence is retrieved from va_args!\n");
+    len = _printf("Complete the sentence: You %R nothing, Jon Snow.\n", "xabj");
+	len2 = printf("Complete the sentence: You know nothing, Jon Snow.\n");
     ui = (unsigned int)INT_MAX + 1024;
     addr = (void *)0x7ffe637541f0;
     _printf("Length:[%d, %i]\n", len, len);
