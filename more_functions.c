@@ -9,7 +9,7 @@
 *
 * Return: length of the output
 */
-int len_buffer(int n, int base)
+int len_buffer(unsigned int n, int base)
 {
 	int len = 0;
 

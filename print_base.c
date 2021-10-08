@@ -1,40 +1,36 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stdlib.h>
 /**
 * print_binary - convert decimal to binary
+*
 * @arg: to store the number of arguments
 *
 * Return: number of characters to be sent to console
 */
 int print_binary(va_list arg)
 {
-	int len, j, i, temp;
+	int len, j, temp;
 	unsigned int n;
 	char *s;
 
-	i = 1;
 	n = va_arg(arg, unsigned int);
 
-	if (n < 1)
-		return (-1);
-
 	if (n == 0)
-		return (_putchar('0'));
-
-	len = len_buffer(n, 2);
-	s = malloc(sizeof(char) * (len + 1));
-	if (s == NULL)
 	{
-		return (-1);
+		_putchar('0');
+		return (1);
 	}
+	len = len_buffer(n, 2);
+	s = malloc(sizeof(int) * (len));
 	while (n != 0)
 	{
 		temp = n % 2;
-		s[i] = (temp + '0');
-		i++;
+		s[len] = (temp + '0');
+		len++;
 		n = n / 2;
 	}
-	s[i] = '\0';
-	for (j = i - 1; j >= 0; j--)
+	for (j = len - 1; j >= 0; j--)
 	{
 		_putchar(s[j]);
 	}
@@ -55,7 +51,7 @@ int print_octal(va_list arg)
 
 	i = 1;
 	n = va_arg(arg, unsigned int);
-	
+
 	if (n == 0)
 		return (_putchar('0'));
 	if (n < 1)
