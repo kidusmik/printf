@@ -73,10 +73,11 @@ int print_unsigned(va_list arg)
 	len = 0;
 
 	num = va_arg(arg, unsigned int);
-
-	if (num < 1)
-		return (-1);
-
+	if (num == 0)
+	{
+	_putchar('0');
+	return (1);
+	}
 	for (; num / div > 9; )
 		div *= 10;
 

@@ -22,7 +22,7 @@ int print_binary(va_list arg)
 		return (1);
 	}
 	len = len_buffer(n, 2);
-	s = malloc(sizeof(char) * (len + 1));
+	s = malloc(sizeof(char) * len);
 	if (s == NULL)
 	{
 	return (-1);
@@ -34,7 +34,6 @@ int print_binary(va_list arg)
 		len++;
 		n = n / 2;
 	}
-	s[len] = '\0';
 	for (j = len - 1; j >= 0; j--)
 	{
 		_putchar(s[j]);
@@ -63,7 +62,7 @@ int print_octal(va_list arg)
 		return (1);
 	}
 	len = len_buffer(n, 8);
-	s = malloc(sizeof(char) * (len  + 1));
+	s = malloc(sizeof(char) * len);
 	if (s == NULL)
 	{
 		return (-1);
@@ -75,7 +74,6 @@ int print_octal(va_list arg)
 	len++;
 	n = n / 8;
 	}
-	s[len] = '\0';
 	for (j = len - 1; j >= 0; j--)
 	{
 	_putchar(s[j]);
@@ -104,7 +102,7 @@ int print_hex(va_list arg)
 		return (1);
 	}
 	len = len_buffer(n, 16);
-	s = malloc(sizeof(char) * (len));
+	s = malloc(sizeof(char) * len);
 	if (s == NULL)
 	{
 		return (-1);
@@ -124,7 +122,6 @@ int print_hex(va_list arg)
 		len++;
 		n = n / 16;
 	}
-	s[len] = '\0';
 	for (j = len - 1; j >= 0; j--)
 	{
 		_putchar(s[j]);
@@ -152,7 +149,7 @@ int print_HEX(va_list arg)
 		return (1);
 	}
 	len = len_buffer(n, 16);
-	s = malloc(sizeof(char) * (len));
+	s = malloc(sizeof(char) * len);
 	if (s == NULL)
 	{
 		return (-1);
@@ -172,7 +169,6 @@ int print_HEX(va_list arg)
 		len++;
 		n = n / 16;
 	}
-	s[len] = '\0';
 	for (j = len - 1; j >= 0; j--)
 	{
 		_putchar(s[j]);
