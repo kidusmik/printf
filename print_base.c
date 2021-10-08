@@ -30,6 +30,7 @@ int print_binary(va_list arg)
 		len++;
 		n = n / 2;
 	}
+	s[len] = '\0';
 	for (j = len - 1; j >= 0; j--)
 	{
 		_putchar(s[j]);
@@ -39,26 +40,26 @@ int print_binary(va_list arg)
 }
 /**
 * print_octal - convert decimal to octal
+*
 * @arg: to store the number of arguments
 *
 * Return: number of characters to be sent to console
 */
 int print_octal(va_list arg)
 {
-	int len, i, j, temp;
+	int len, j, temp;
 	unsigned int n;
 	char *s;
 
-	i = 1;
 	n = va_arg(arg, unsigned int);
 
 	if (n == 0)
-		return (_putchar('0'));
-	if (n < 1)
-		return (-1);
-
+	{
+		_putchar('0');
+		return (1);
+	}
 	len = len_buffer(n, 8);
-	s = malloc(sizeof(char) * (len + 1));
+	s = malloc(sizeof(char) * (len));
 	if (s == NULL)
 	{
 		return (-1);
@@ -66,12 +67,11 @@ int print_octal(va_list arg)
 	while (n != 0)
 	{
 	temp = n % 8;
-	s[i] = (temp + '0');
-	i++;
+	s[len] = (temp + '0');
 	n = n / 8;
 	}
-	s[i] = '\0';
-	for (j = i - 1; j >= 0; j--)
+	s[len] = '\0';
+	for (j = len - 1; j >= 0; j--)
 	{
 	_putchar(s[j]);
 	}
@@ -80,26 +80,26 @@ int print_octal(va_list arg)
 }
 /**
 * print_hex - convert decimal to hexidecimal
+*
 * @arg: to store the number of arguments
 *
 * Return: number of characters to be sent to console
 */
 int print_hex(va_list arg)
 {
-	int len, i, j, temp;
+	int len, j, temp;
 	char *s;
 	unsigned int n;
 
-	i = 1;
 	n = va_arg(arg, unsigned int);
 
 	if (n == 0)
-		return (_putchar('0'));
-	if (n < 1)
+	{
+		_putchar('0');
 		return (-1);
-
+	}
 	len = len_buffer(n, 16);
-	s = malloc(sizeof(char) * (len + 1));
+	s = malloc(sizeof(char) * (len));
 	if (s == NULL)
 	{
 		return (-1);
@@ -115,12 +115,11 @@ int print_hex(va_list arg)
 		{
 			temp = temp + 87;
 		}
-		s[i] = temp;
-		i++;
+		s[len] = temp;
 		n = n / 16;
 	}
-	s[i] = '\0';
-	for (j = i - 1; j >= 0; j--)
+	s[len] = '\0';
+	for (j = len - 1; j >= 0; j--)
 	{
 		_putchar(s[j]);
 	}
@@ -136,19 +135,18 @@ int print_hex(va_list arg)
 int print_HEX(va_list arg)
 {
 	unsigned int n;
-	int j, len, temp, i;
+	int j, len, temp;
 	char *s;
 
-	i = 1;
 	n = va_arg(arg, unsigned int);
 
 	if (n == 0)
-		return (_putchar('0'));
-	if (n < 1)
+	{
+		_putchar('0');
 		return (-1);
-
+	}
 	len = len_buffer(n, 16);
-	s = malloc(sizeof(char) * (len + 1));
+	s = malloc(sizeof(char) * (len));
 	if (s == NULL)
 	{
 		return (-1);
@@ -164,12 +162,11 @@ int print_HEX(va_list arg)
 		{
 			temp = temp + 55;
 		}
-		s[i] = temp;
-		i++;
+		s[len] = temp;
 		n = n / 16;
 	}
-	s[i] = '\0';
-	for (j = i - 1; j >= 0; j--)
+	s[len] = '\0';
+	for (j = len - 1; j >= 0; j--)
 	{
 		_putchar(s[j]);
 	}
