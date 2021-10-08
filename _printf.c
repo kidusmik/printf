@@ -24,6 +24,7 @@ int _printf(const char *format, ...)
 			{"u", print_unsigned},
 			{"r", print_rev},
 			{"R", print_rot},
+			{"S", print_the_string},
 			{NULL, NULL},
 		};
 
