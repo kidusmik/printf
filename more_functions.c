@@ -9,9 +9,9 @@
 *
 * Return: length of the output
 */
-int len_buffer(unsigned int n, int base)
+unsigned int len_buffer(unsigned int n, int base)
 {
-	int len = 0;
+	int len = 1;
 
 	while (n != 0)
 	{

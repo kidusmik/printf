@@ -22,7 +22,11 @@ int print_binary(va_list arg)
 		return (1);
 	}
 	len = len_buffer(n, 2);
-	s = malloc(sizeof(int) * (len));
+	s = malloc(sizeof(char) * (len + 1));
+	if (s == NULL)
+	{
+	return (-1);
+	}
 	while (n != 0)
 	{
 		temp = n % 2;
@@ -59,7 +63,7 @@ int print_octal(va_list arg)
 		return (1);
 	}
 	len = len_buffer(n, 8);
-	s = malloc(sizeof(char) * (len));
+	s = malloc(sizeof(int) * (len  + 1));
 	if (s == NULL)
 	{
 		return (-1);
